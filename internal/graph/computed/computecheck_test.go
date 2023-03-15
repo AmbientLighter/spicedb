@@ -805,7 +805,7 @@ func TestComputeCheckWithCaveats(t *testing.T) {
 			ds, err := memdb.NewMemdbDatastore(0, 0, memdb.DisableGC)
 			require.NoError(t, err)
 
-			dispatch := graph.NewLocalOnlyDispatcher(10)
+			dispatch := graph.NewLocalOnlyDispatcher(1)
 			ctx := log.Logger.WithContext(datastoremw.ContextWithHandle(context.Background()))
 			require.NoError(t, datastoremw.SetInContext(ctx, ds))
 
@@ -852,7 +852,7 @@ func TestComputeCheckError(t *testing.T) {
 	ds, err := memdb.NewMemdbDatastore(0, 0, memdb.DisableGC)
 	require.NoError(t, err)
 
-	dispatch := graph.NewLocalOnlyDispatcher(10)
+	dispatch := graph.NewLocalOnlyDispatcher(1)
 	ctx := log.Logger.WithContext(datastoremw.ContextWithHandle(context.Background()))
 	require.NoError(t, datastoremw.SetInContext(ctx, ds))
 
@@ -877,7 +877,7 @@ func TestComputeBulkCheck(t *testing.T) {
 	ds, err := memdb.NewMemdbDatastore(0, 0, memdb.DisableGC)
 	require.NoError(t, err)
 
-	dispatch := graph.NewLocalOnlyDispatcher(10)
+	dispatch := graph.NewLocalOnlyDispatcher(1)
 	ctx := log.Logger.WithContext(datastoremw.ContextWithHandle(context.Background()))
 	require.NoError(t, datastoremw.SetInContext(ctx, ds))
 

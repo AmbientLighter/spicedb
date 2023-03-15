@@ -164,7 +164,7 @@ func TestMaxDepthLookup(t *testing.T) {
 
 	ds, revision := testfixtures.StandardDatastoreWithData(rawDS, require)
 
-	dispatch := NewLocalOnlyDispatcher(10)
+	dispatch := NewLocalOnlyDispatcher(1)
 	ctx := datastoremw.ContextWithHandle(context.Background())
 	require.NoError(datastoremw.SetInContext(ctx, ds))
 
